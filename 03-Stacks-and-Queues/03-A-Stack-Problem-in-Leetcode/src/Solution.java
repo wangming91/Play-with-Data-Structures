@@ -29,5 +29,6 @@ class Solution {
 
         System.out.println((new Solution()).isValid("()[]{}"));
         System.out.println((new Solution()).isValid("([)]"));
+        System.out.println((new Solution()).isValid("(dd"));
     }
 }

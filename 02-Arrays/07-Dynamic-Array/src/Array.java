@@ -30,23 +30,6 @@ public class Array<E> {
         return size == 0;
     }
 
-    // 在index索引的位置插入一个新元素e
-    public void add(int index, E e){
-
-        if(index < 0 || index > size)
-            throw new IllegalArgumentException("Add failed. Require index >= 0 and index <= size.");
-
-        if(size == data.length)
-            resize(2 * data.length);
-
-        for(int i = size - 1; i >= index ; i --)
-            data[i + 1] = data[i];
-
-        data[index] = e;
-
-        size ++;
-    }
-
     // 向所有元素后添加一个新元素
     public void addLast(E e){
         add(size, e);
@@ -103,6 +86,23 @@ public class Array<E> {
         if(size == data.length / 2)
             resize(data.length / 2);
         return ret;
+    }
+
+    // 在index索引的位置插入一个新元素e
+    public void add(int index, E e){
+
+        if(index < 0 || index > size)
+            throw new IllegalArgumentException("Add failed. Require index >= 0 and index <= size.");
+
+        if(size == data.length)
+            resize(2 * data.length);
+
+        for(int i = size - 1; i >= index ; i --)
+            data[i + 1] = data[i];
+
+        data[index] = e;
+
+        size ++;
     }
 
     // 从数组中删除第一个元素, 返回删除的元素
