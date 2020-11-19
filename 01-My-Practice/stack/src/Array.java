@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 /**
  * @Author: ming.wang
  * @Date: 2020/11/18 0018 9:44
@@ -73,9 +71,8 @@ public class Array<E> {
         }
         size--;
         data[size] = null;
-        if (size == data.length / 2) {
-            reSize(size);
-        }
+        if(size == data.length / 4 && data.length / 2 != 0)
+            reSize(data.length / 2);
         return result;
     }
 
@@ -109,7 +106,7 @@ public class Array<E> {
         return "Array{" +
                 "  capacity=" + data.length +
                 ", size=" + size +
-                ", data=" + Arrays.toString(data) +
+                ", data=" + data +
                 '}';
     }
 }
